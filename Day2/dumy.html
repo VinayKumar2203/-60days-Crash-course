@@ -42,8 +42,28 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             margin: 10px;
         }
-        @media screen and (min-width:480px) {
-            
+        @media screen and (max-width:700px) {
+            .middle>div {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            margin: 10px;
+        }
+        .btn {
+            background-color: rgb(142, 8, 8);
+            display: flex;
+            flex-direction: column;
+        }
+        .btn>button:nth-child(1)  {    
+            font-size: 20px;
+            text-align: left;
+            margin: 10px;  
+        }
+        .btn1  {    
+           display: none; 
+        }
         } 
     </style>
 </head>
@@ -56,10 +76,10 @@
             </div>
             <div class="btn">
                 <button>home</button>
-                <button>home</button>
-                <button>home</button>
-                <button>home</button>
-                <button>home</button>
+                <button class="btn1" >home</button>
+                <button class="btn1">home</button>
+                <button class="btn1">home</button>
+                <button class="btn1">home</button>
             </div>
         </nav>
 
