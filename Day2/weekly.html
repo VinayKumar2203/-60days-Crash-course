@@ -4,92 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly schedule</title>
+    <title>Weekly Schedule</title>
     <style>
-        .container {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            height: auto;
-            width: 70%;
-            margin: auto;
+        * {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            
         }
 
-        .container>div {
-            border: 2px solid red;
-            margin: 5px;
-            border-radius: 5px;
-            padding: 0px 15px;
-        }
-        .schedule{
-            border: 2px solid;
-            /* height: 400px; */
+        .cont {
+            /* border: 2px solid red; */
+            height: 400px;
+            width: 700px;
+            margin: auto;
             display: grid;
-            grid-template-rows: repeat(9,1fr);
-            grid-template-columns: repeat(6,1fr);
+            grid-template-columns: repeat(6, 1fr);
         }
-        .schedule>div{
-            /* height: 10px; */
-            background-color: aqua;
-            margin: 5px;
+        .cont div{
+            border: 1px solid red ;
+            margin: 3px;
+            border-radius: 10px;
+            text-align: center;
+            padding: 5px;
         }
+        .showTime{
+            background-color: rgb(236, 223, 225);
+        }
+        .cont div:nth-child(even){
+            background-color: rgb(235, 140, 242);
+        }
+        .cont div:nth-child(odd){
+            background-color: rgb(235, 242, 140);
+        }
+        
+        
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div>Monday </div>
-        <div>Tuesday</div>
+    <h1>vinay Weekly Schedule</h1>
+    <hr>
+    <div class="cont">
+        <div class="hideCell">time</div>
+        <div > monday</div>
+        <div> tuesday</div>
         <div>wednesday</div>
-        <div>thuresday</div>
+        <div>thursday</div>
         <div>friday</div>
-    </div>
-    <div class="schedule">
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-   <div>1</div>
-  
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="showTime">8</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+       
+       
+        
+        <div style="  grid-column: span 6; text-align: start;">Note:</div>
+        <!-- <div></div> -->
+        <!-- <div></div> -->
+        <!-- <div></div> -->
+        <!-- <div></div> -->
+        <!-- <div></div> -->
     </div>
 </body>
 
