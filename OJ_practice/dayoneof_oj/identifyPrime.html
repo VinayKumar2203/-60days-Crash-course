@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Identify prime</h1>
+</body>
+<script>
+
+
+    let num = 13;
+    // let isPrime = true;
+
+
+
+    let count=0;
+    for(let i=0;i<=num;i++){
+        if(num%i===0){
+            count++;
+        }
+    }
+    if(count==2){
+        console.log("Yes");
+    }
+    else{
+        console.log("No");
+    }
+
+
+
+    // if (num < 2) {
+    //     isPrime = false;
+    // } else {
+    //     for (let i = 2; i <= (num/2); i++) {
+    //         if (num % i === 0) {
+    //             isPrime = false;
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // if (isPrime) {
+    //     console.log(num + " is a prime number.");
+    // } else {
+    //     console.log(num + " is not a prime number.");
+    // }
+
+</script>
+
+</html>

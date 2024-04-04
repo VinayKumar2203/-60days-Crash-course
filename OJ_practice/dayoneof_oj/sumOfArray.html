@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    let A = [2 ,3]
+    let B = [7]
+    let sumOfPrimesA = 0;
+    let sumOfPrimesB = 0
+
+    for (let i = 0; i < A.length; i++) {
+        // console.log(A[i])
+        // console.log(Math.sqrt(A[i]));
+        let isPrime = true;
+        for (let j = 2; j <= Math.sqrt(A[i]); j++) {
+            if (A[i] % j === 0) {
+                // console.log(j);
+                isPrime = false;
+                break;
+            }
+
+        }
+        if (isPrime && A[i]>1) {
+            sumOfPrimesA+=A[i];
+        }
+    }
+    // console.log(sumOfPrimesA)
+
+
+
+</script>
+
+</html>
