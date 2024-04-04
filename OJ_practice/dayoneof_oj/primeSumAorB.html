@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        prime sum up from A to
+
+    </h1>
+</body>
+
+</html>
+<script>
+    let A = 1;
+    let B = 5;
+        let sum = 0
+        for (i = A; i <= B; i++) {
+            let count = 0;
+            for (let j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    count++;
+                }
+            }
+            if (count == 2) {
+                sum = sum + i;
+
+            }
+        }
+        console.log(sum);
+</script>
