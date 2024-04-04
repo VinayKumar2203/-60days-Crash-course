@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    console.log("vinay kumar");
+    let str = "vinay";
+    let vowelCount=0;
+    let consonantCount=0;
+    let vowel=/[aeiou]/
+    for (let i = 0; i < str.length; i++) {
+        let char= str[i];
+        if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u') {
+            vowelCount++;
+        } else {
+            consonantCount++;
+        }
+    }
+    console.log("vowelCount",vowelCount)
+    console.log("consonantCount:",consonantCount)
+
+
+
+// for (let i = 0; i < str.length; i++) {
+//     const char = str[i];
+//     if (/[a-z]/.test(char)) {
+//         if (vowel.test(char)) {
+//             vowelCount++;
+//         } else {
+//             consonantCount++;
+//         }
+//     }
+// }
+// console.log("vowel:",vowelCount);
+// console.log("consonant",consonantCount);
+    
+</script>
+
+</html>
