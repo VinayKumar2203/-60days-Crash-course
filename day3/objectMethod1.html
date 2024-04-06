@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Method</title>
+</head>
+<body>
+    <h4>Problem-1 Rectangle Object
+
+        Create a rectangle object with length and width properties
+        Create two methods area and perimeter, that will return the area and perimeter of the rectangle</h4>
+</body>
+</html>
+<script>
+    console.log("Panghal's Bhai")
+   let rectangle={
+    length:10,
+    width:5,
+    //  define:function(length,width){
+    //    this.length=length;
+    //    this.width=width;
+    //  },
+    area:function(){
+        return this.length*this.width;
+    },
+    perimeter:function(){
+      return 2*(this.length+this.width);
+    }
+
+   }
+    // console.log(rectangle.define(5,5))
+   console.log(rectangle.area(),"this is area ")
+   console.log(rectangle.perimeter(),"this is perameter")
+
+</script>
