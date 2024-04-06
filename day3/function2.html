@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Problem 2: Use the above function to print the Primes from 2 to a given limit</h3>
+</body>
+
+</html>
+<script>
+    let count = 0;
+    function isPrime(num) {
+        for (let i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+                console.log( i,"This is the prime number")
+            }else{
+                console.log(i,"NO")
+            }
+        }
+    }
+    isPrime(13)
+</script>
