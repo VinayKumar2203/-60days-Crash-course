@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Problem 3: Use the same function to print Non-Primes from 2 to a given limit
+</body>
+</html>
+<script>
+    // console.log("vinay");
+    let count=0;
+    function isPrime(number) {
+        for (let i = 0; i <= number; i++) {
+          if (number%i==0) {
+              console.log(i)
+              count++  
+        }  
+        else{
+            console.log("Non-Primes");
+        }   
+        }
+        // console.log(count)
+        if (count==2) {
+            console.log("Yes")
+        } else {
+            console.log("No");
+        }
+        // return count;
+    }
+
+    isPrime(13)
+    
+</script>
