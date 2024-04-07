@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object Method 2</title>
+</head>
+<body>
+    <p>
+        object Method 2
+    </p>
+</body>
+</html>
+<script>
+    let data=[
+        {
+            name:"Rice",
+            quantity:2,
+            price:60
+        },
+        {
+            name:"Dal",
+            quantity:3,
+            price:50
+        },
+        {
+            name:"salt",
+            quantity:1,
+            price:20
+        }
+
+    ]
+    let toatalAmount = data.reduce((total,item) => total + (item.price*item.quantity),0)
+
+console.log("Total Value",toatalAmount)
+</script>
