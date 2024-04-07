@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Method 3</title>
+</head>
+
+<body>
+    <h3>Object Method 3</h3>
+</body>
+
+</html>
+<script>
+    let  sales = [
+        { item: 'PS4 Pro', stock: 3, original: 500 },
+        { item: 'Xbox One X', stock: 1, original: 499.99, discount: 0.1 },
+        { item: 'Nintendo Switch', stock: 4, original: 299.99 },
+        { item: 'PS2 Console', stock: 1, original: 299.99, discount: 0.8 },
+        { item: 'Nintendo 64', stock: 2, original: 199.99, discount: 0.65 }
+    ];
+        console.log("Radha kirshna");
+    function calculateSalesTotals(sales) {
+ 
+        let newArray=sales.map(function (item,i) {
+            let sale=item.discount ? item.original * (1-item.discount) : item.original;
+            let total=item.stock * sale;
+            return{
+                ...item,
+                sale:parseFloat(sale.toFixed(2)),
+                total:parseFloat(total.toFixed(3))
+            };
+        });
+        return newArray;
+
+}
+    let result= calculateSalesTotals(sales);
+    console.log(result);
+
+</script>
