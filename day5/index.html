@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Panghal</h1>
 </body>
+
 </html>
 <script>
     console.log("vinay");
-    let name=["Nrupul", "Prateek", "Aman", "Albert", "Yogesh"];
-      let age= [32, 30, 26, 28, 44];
-
+    let name = ["Nrupul", "Prateek", "Aman", "Albert", "Yogesh"];
+    let age = [32, 30, 26, 28, 44];
+        
+        let arr = [];
+        for (let i = 0; i < name.length; i++) {
+            arr.push({ name: name[i], age: age[i] })
+        }
+     
+        let above30Age=arr.filter(ele => ele.age>30);
+        let above30Name=arr.map(ele => ele.name);
+           console.log(above30Age)
+    
 
 </script>
