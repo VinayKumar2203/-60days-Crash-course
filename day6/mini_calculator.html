@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 70%;
+            margin: auto;
+            text-align: center;
+        }
+        div{
+            margin: 10px;
+            text-align: center;
+        }
+        input{
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="result">output</h3>
+    <div>
+        <input  id="num1" value="0" type="number">
+        <input id="num2" value="0" type="number">
+    </div>
+    <div>
+        <button id="add">Add</button>
+        <button id="subtract">Subtract</button>
+        <button id="multiply">Multiply</button>
+        <button id="divide">Divide</button>
+    </div>
+</body>
+</html>
+<script>
+ let num1=document.getElementById("num1")
+//  num1.value=0;
+ let num2=document.getElementById("num2")
+//  num2.value=0;
+ let add=document.getElementById("add")
+ let subtract=document.getElementById("subtract")
+ let multiply=document.getElementById("multiply")
+ let divide=document.getElementById("divide")
+ let result=document.getElementById("result");
+
+
+add.addEventListener('click',myAdd)
+function myAdd() {
+    console.log("add");
+    // result.innerText="add"
+        let resultValue=+(num1.value) +  +(num2.value)
+    result.innerText= resultValue;
+
+
+}
+subtract.addEventListener('click',mysubtract)
+function mysubtract() {
+    console.log("subtract");
+    let resultValue=(num1.value)-(num2.value)
+    result.innerText= resultValue
+}
+multiply.addEventListener('click',mymultiply)
+function mymultiply() {
+    let resultValue=(num1.value)*(num2.value)
+    result.innerText= resultValue
+}
+divide.addEventListener('click',mydivide)
+function mydivide() {
+    let resultValue=(num1.value)/(num2.value)
+    result.innerText= resultValue
+}
+
+</script>
