@@ -21,7 +21,7 @@ export const homeQuantityToggle = (event, id, stock) => {
       }
     }
   
-   
+    
     productQuantity.innerText = quantity;
     console.log(quantity);
     productQuantity.setAttribute("data-quantity", quantity.toString());
