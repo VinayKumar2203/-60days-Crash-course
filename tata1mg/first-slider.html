@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        .slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%;
+    height: 200px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <img src="https://onemg.gumlet.io/413a1e6b-83e7-471f-9d01-883804545c8a_1693806391.png?w=744&h=175&format=auto" alt="Slide 1">
+            <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712845533_Range_1948x800.png" alt="Slide 2">
+            <img src="https://onemg.gumlet.io/7813da63-d0a5-4461-a897-274de753f95e_1663825942.png?w=744&h=175&format=auto" alt="Slide 3">
+            <img src="https://onemg.gumlet.io/49c3d7f4-2c53-4785-a537-ffffe0b4910c_1711087711.png?w=744&h=175&format=auto" alt="Slide 4">
+            <img src="https://onemg.gumlet.io/e84d656e-bd74-4e1b-a822-af2a2b035846_1708002794.jpg?w=744&h=175&format=auto" alt="Slide 5">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const slider = document.querySelector(".slider");
+    const slides = document.querySelector(".slides");
+    const slideWidth = slider.clientWidth;
+
+    let currentSlide = 0;
+    const totalSlides = slides.children.length;
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    }
+
+    setInterval(nextSlide, 2000); // Change slide every 2 seconds
+});
+
+    </script>
+</body>
+</html>

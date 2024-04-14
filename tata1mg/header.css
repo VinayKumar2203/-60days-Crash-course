@@ -1,0 +1,190 @@
+/* Header Section */
+#nav {
+    height: 50px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #a1 {
+    height: 45px;
+    width: 110px;
+    /* border: 1px solid; */
+  }
+  
+  #aa {
+    height: 40px;
+    width: 105px;
+    /* border: 1px solid red; */
+  }
+  
+  #ig {
+    height: 100%;
+    width: 100%;
+  }
+  
+  #b1 {
+    height: 45px;
+    width: 770px;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .bb {
+    height: 40px;
+    width: 180px;
+    /* border: 1px solid; */
+  }
+  
+  .bj {
+    height: 40px;
+    width: 120px;
+    /* border: 1px solid; */
+  }
+  
+  #had {
+    font-size: 14px;
+    color: orange;
+  }
+  
+  #ha {
+    font-size: 14px;
+  }
+  
+  #c1 {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    width: 170px;
+    /* border: 1px solid; */
+  }
+  
+  #lo {
+    font-size: 13px;
+  }
+  
+  .cc {
+    height: 40px;
+    width: 85px;
+    /* border: 1px solid; */
+  }
+  
+  #d1 {
+    height: 45px;
+    width: 45px;
+    /* border: 1px solid; */
+  }
+  
+  #e1 {
+    height: 45px;
+    width: 68px;
+    /* border: 1px solid; */
+  }
+  
+  .dd {
+    height: 40px;
+    width: 68px;
+    /* border: 1px solid; */
+  }
+  
+  #d2 {
+    height: 40px;
+    width: 45px;
+    /* border: 1px solid; */
+  }
+  
+  /* Navigation Section */
+  #nav2 {
+    height: 50px;
+    /* border: 1px solid blue; */
+    display: flex;
+  }
+  
+  #in {
+    width: 175px;
+    margin-left: 43px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-right: 5px;
+    padding: 10px;
+  }
+  
+  #in2 {
+    width: 565px;
+    padding: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+  
+  #f1 {
+    height: 50px;
+    width: 500px;
+    /* border: 1px solid; */
+    margin-left: 70px;
+    display: flex;
+  }
+  
+  #f3 {
+    font-size: 15px;
+  }
+  
+  #but {
+    margin-left: 25px;
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(231, 126, 88);
+    border-radius: 5px;
+    color: white;
+    border: 0px;
+  }
+  
+  /* Box Section */
+  #box1 {
+    height: 38px;
+    /* border: 1px solid blueviolet; */
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .bo {
+    margin-bottom: 4px;
+  }
+  
+  .text {
+    font-size: 14px;
+  }
+  
+  #qq {
+    height: 192px;
+    width: 895px;
+    /* border: 1px solid; */
+  }
+  
+  .ik {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #qr {
+    height: 192px;
+    width: 500px;
+    border: 1px solid red;
+  }
+  
+  #aq {
+    display: flex;
+  }
+  
+  #qw {
+    height: 90px;
+    border: 1px solid;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  #text2 {
+    font-size: 22px;
+    text-align: center;
+  }
+  

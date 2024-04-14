@@ -1,0 +1,146 @@
+#box1{
+    height: 765px;
+}
+#az{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#child{
+    height: 740px;
+    width: 97%;
+    margin-left: 19px;
+    margin-top: 25px;
+    
+}
+#box2{
+    height:165px;
+    
+    
+}
+#ta{
+    height: 50px;
+    width: 600px;
+    margin: auto;
+}
+.aa{
+    height: 110px;
+    width: 150px ;
+}
+#nn{
+    display: flex;
+    justify-content:space-evenly ;
+}
+#qq{
+    text-align: center;
+}
+.wa{
+    text-align: center;
+    font-size: 32px;
+}
+.wb{
+    text-align: center;
+}
+#box3{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+#ww{
+   height: 40px;
+   width: 280px;
+   margin-top:14px;
+}
+#ha{
+    height: 35px;
+    width: 300px;
+    margin-top: 20px;
+}
+#buton{
+    height: 42px;
+    width: 103px;
+    background-color: rgb(151, 106, 21);
+    color: white;
+    margin-left: 5px;
+    border-radius: 7px;
+}
+#wo{
+    height: 255px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.oo{
+    height: 255px;
+    width: 220px;
+
+}
+
+.wi{
+    
+    font-size:12px;
+    
+}
+.ii{
+    height: 30px;
+    width: 30px;
+}
+#bot{
+    height: 40px;
+    width: 95px;
+    background-color: rgb(119, 87, 29);
+    color:white;
+    border-radius: 7px;
+}
+.hh1{
+    height: 45px;
+    width: 145px;
+    border-radius: 7px;
+    background-color: black;
+    color: white;
+
+}
+#ai{
+    margin-top: 10px;
+}
+#box4{
+    height: 138px;
+    display: flex;
+    justify-content: center;
+}
+.q4{
+    height: 138px;
+    width: 340px;
+    display: flex;
+    margin-right: 35px;
+}
+.ql{
+    height: 57px;
+    width: 57px;
+    margin-top: 50px;
+    margin-right: 35px;
+}
+#box5{
+    height: 155px;
+    margin-top: 30px;
+}
+.ac{
+    height: 95px;
+    width: 115px;
+}
+.wp{
+    display: flex;
+    justify-content: center;
+}
+#op{
+    margin-left: 18px;
+}
+#po{
+    margin-left: 50px;
+    display: flex;
+}#on{
+    text-align: center;
+}
+.ax{
+    height: 40px;
+    width: 40px;
+    margin-left: 30px;
+}

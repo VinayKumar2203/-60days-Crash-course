@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .slider-container {
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  margin: 0 5px; /* Adjust margin for smaller devices */
+}
+
+.slide img {
+  max-width: 100%;
+  height: 200px;
+  border-radius: 0; /* Remove border radius */
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900523_Optimum+Nutrition.png?format=auto"
+                    alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900537_MuscleBlaze.png?format=auto"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900549_Dabur.png?format=auto" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900523_Optimum+Nutrition.png?format=auto"
+                    alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900537_MuscleBlaze.png?format=auto"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900549_Dabur.png?format=auto" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900523_Optimum+Nutrition.png?format=auto"
+                    alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900537_MuscleBlaze.png?format=auto"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900549_Dabur.png?format=auto" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900523_Optimum+Nutrition.png?format=auto"
+                    alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900537_MuscleBlaze.png?format=auto"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img src="https://onemg.gumlet.io/diagnostics%2F2024-04%2F1712900549_Dabur.png?format=auto" alt="">
+            </div>
+
+            <!-- Add more slides similarly -->
+        </div>
+        <button class="prev-btn">&#10094;</button>
+        <button class="next-btn">&#10095;</button>
+    </div>
+
+</body>
+<script>
+ const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = (i >= index && i < index + 7) ? 'block' : 'none';
+  });
+}
+
+function showNextSlide() {
+  if (currentIndex + 7 < slides.length) {
+    currentIndex += 1;
+    showSlide(currentIndex);
+  }
+}
+
+function showPrevSlide() {
+  if (currentIndex > 0) {
+    currentIndex -= 1;
+    showSlide(currentIndex);
+  }
+}
+
+document.querySelector('.next-btn').addEventListener('click', showNextSlide);
+document.querySelector('.prev-btn').addEventListener('click', showPrevSlide);
+
+// Show the first 7 slides initially
+showSlide(currentIndex);
+
+</script>
+
+</html>
