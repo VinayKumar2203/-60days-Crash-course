@@ -81,33 +81,7 @@ button:hover {
 
 </html>
 <script>
-    // let name=document.getElementById("name")
-    // function logSubmit(e) {
-    //     e.preventDefault();
-    //     // alert("hello my dear");
-    //     let name = document.getElementById("name").value;
-    //     let password = document.getElementById("password").value;
-    //     let role = document.getElementById("role").value;
-    //     let userDetails = {
-    //         name: name,
-    //         role: role,
-    //         password: password
-    //     };
-
-    //     // console.log(role);
-    //     // console.log(name);
-    //     // console.log(password);
-    //     // console.log(userDetails);
-    //     localStorage.setItem("name",JSON.stringify(userDetails));
-    // }
-
-    // let form = document.getElementById("form")
-    //     .addEventListener("submit", logSubmit);
-
-
-
-
-    document.addEventListener("DOMContentLoaded", function() {
+     document.addEventListener("DOMContentLoaded", function() {
     let form = document.getElementById("form");
     form.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -123,7 +97,6 @@ button:hover {
 
         localStorage.setItem("userDetails", JSON.stringify(userDetails));
         alert("Signup successful!");
-        // Redirect to login page or any other page
         window.location.href = "login.html";
     });
 });
