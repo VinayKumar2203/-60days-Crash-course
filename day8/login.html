@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page </title>
+</head>
+<body>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required placeholder="enter username">
+        <br><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="Password">
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+</html>
+<script>
+    let Login = document.getElementById("login-form");
+    Login.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // console.log("hello vinay");
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        // console.log(username, password);
+
+         
+        let storedUserDetails=localStorage.getItem('userDetails');
+          console.log(storedUserDetails);
+        if (storedUserDetails) {
+            let userDetail=JSON.parse(storedUserDetails);
+
+            if (username==userDetail.name && password==userDetail.password) {
+                window.location.href='employee_records.html'
+            }
+            else{
+                alert('Invalid userName or Password. Please try again');
+            }
+        }
+        else{
+            alert('No user found. please sign up first');
+        }
+    })
+</script>

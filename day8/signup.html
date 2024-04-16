@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp page</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <h3>SignUp</h3>
+    <form id="form">
+        <label for="name">Name</label>
+        <input type="text" placeholder="name" required id="name" name="name">
+        <br>
+        <br>
+        <label for="role">Role</label>
+        <select name="role" id="role">
+            <option value="HR">HR</option>
+            <option value="Employee">Employee</option>
+        </select>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">SignUp</button>
+    </form>
+</body>
+
+</html>
+<script>
+    // let name=document.getElementById("name")
+    // function logSubmit(e) {
+    //     e.preventDefault();
+    //     // alert("hello my dear");
+    //     let name = document.getElementById("name").value;
+    //     let password = document.getElementById("password").value;
+    //     let role = document.getElementById("role").value;
+    //     let userDetails = {
+    //         name: name,
+    //         role: role,
+    //         password: password
+    //     };
+
+    //     // console.log(role);
+    //     // console.log(name);
+    //     // console.log(password);
+    //     // console.log(userDetails);
+    //     localStorage.setItem("name",JSON.stringify(userDetails));
+    // }
+
+    // let form = document.getElementById("form")
+    //     .addEventListener("submit", logSubmit);
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    let form = document.getElementById("form");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let password = document.getElementById("password").value;
+        let role = document.getElementById("role").value;
+        let userDetails = {
+            name: name,
+            role: role,
+            password: password
+        };
+
+        localStorage.setItem("userDetails", JSON.stringify(userDetails));
+        alert("Signup successful!");
+        // Redirect to login page or any other page
+        window.location.href = "login.html";
+    });
+});
+
+</script>
