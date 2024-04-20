@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #container {
+            border: 1px solid red;
+            width: 60%;
+            height: 200px;
+            margin: auto;
+        }
+
+        #container button {
+            /* display: flex; */
+            text-align: center;
+            justify-content: center;
+        }
+
+        .showTime {
+            text-align: center;
+            font-size: x-large;
+            margin-bottom: 20px;
+        }
+        .btn{
+            text-align: center;
+            /* font-size:xx-large; */
+            /* border-radius: 10px; */
+        }
+        .btn >button{
+            font-size: large;
+           border-radius: 10px;
+           padding: 10px; 
+           margin: 5px;
+           border: none;
+           cursor: pointer;
+
+        }
+        .btn >button:hover{
+            background-color: aqua;
+        }
+        #milisec{
+            font-size: 15px;
+        }
+       
+        #min{
+            visibility: hidden;
+        }
+        #hr
+        {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JS StopWatch</h1>
+    <br><br><br>
+    <div id="container">
+        <div class="showTime">
+            <span id="hr">00</span>
+            <span id="min">00</span>
+            <span id="sec">00</span>
+            <span id="milisec">00</span>
+        </div>
+        <div class="btn">
+            <button id="start">Start</button>
+            <button id="Pause">Pause</button>
+            <button id="Reset">Reset</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let startTimer;
+    // button get's from html 
+    let start=document.getElementById("start");
+    let Pause=document.getElementById("Pause");
+    let Reset=document.getElementById("Reset");
+// show time id get in js form html
+    let hr=document.getElementById("hr");
+    let min=document.getElementById("min");
+    let sec=document.getElementById("sec");
+    let milisec=document.getElementById("milisec");
+
+    
+// start function start here--------------------------------------------------------
+    function startFun() {
+        console.log("stopWatch start ")
+        startTimer =  setInterval(() => {           
+            milisec.innerText++                
+                if (milisec.innerText >=60) {
+                    sec.innerText++;
+                    milisec.innerText=0;
+                }
+                else if(sec.innerText >=60){
+                 min.innerText++;
+                 min.style.visibility="visible"
+                 sec.innerText=0;
+                }
+                else if(min.innerText >=59){
+                 hr.innerText++;
+                 hr.style.visibility="visible"
+                 min.innerText=0;
+                }
+        }, 10);
+    }
+   
+
+    start.addEventListener("click",startFun)
+    // start function end here================================================
+   
+   
+    // pAUse function start here------------------------------------------------------
+    function PauseFun() {
+        console.log("Pause stoopwatch")
+        clearInterval(startTimer)
+        
+    }
+    Pause.addEventListener("click",PauseFun)
+    // pause fun end here-----------------------------------
+    
+    
+    // reset function start here==============
+    function ResetFun() {
+        console.log("Reset stoopwatch")
+        location.reload();
+
+
+    }
+    Reset.addEventListener("click",ResetFun)
+</script>
