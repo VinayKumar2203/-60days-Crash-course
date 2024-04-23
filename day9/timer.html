@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+
+    <style>
+        .main {
+            border: 2px solid;
+            max-width: 60%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        input {
+            display: block;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Create a timer.html page
+Create input boxes which accepts time. (minutes, seconds and hours should be taken)
+have the following buttons start, pause, reset
+on start, the countdown should start
+on pause the timer should be pause
+on reset reset and stop the timer
+You can have a look at for reference. https://www.google.com/search?q=timer -->
+    <div class="main">
+        <h2>show timer</h2>
+        <div id="inputs">
+            <label for="hours">h</label><input id="hours" type="number" placeholder="hours">
+            <label for="minutes">m</label><input id="minutes" type="number" placeholder="minutes">
+            <label for="seconds">s</label> <input id="seconds" type="number" placeholder="seconds">
+
+        </div>
+        <div id="btn">
+            <button id="start">start</button>
+            <button id="pause">pause</button>
+            <button id="reset">reset</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    let timer;
+    let hoursInput = document.getElementById("hours");
+    let minutesInput = document.getElementById("minutes");
+    let secondsInput = document.getElementById("seconds");
+    let start = document.getElementById("start");
+    let pause = document.getElementById("pause");
+    let reset = document.getElementById("reset");
+
+    function startFun() {
+        console.log("start timer")
+        let hours = parseInt(hoursInput.value) || 0;
+        let minutes = parseInt(minutesInput.value) || 0;
+        let seconds = parseInt(secondsInput.value) || 0;
+
+        let totalTimeInSecond = (hours * 3600) + (minutes * 60) + seconds;
+         
+        timer = setInterval(() => {
+            totalTimeInSecond--;
+            if (totalTimeInSecond <= 0) {
+                console.log("timer finished")
+            }
+            else {
+                updateDisplay(totalTimeInSecond);
+            }
+        }, 1000)
+    }
+
+    // -------------------------
+    function pauseFun() {
+        // console.log("pause")
+        clearInterval(timer);
+    }
+
+    // ---------------------------
+    function resetFun() {
+        // console.log("reset")
+        clearInterval(timer);
+        hoursInput.value = "";
+        minutesInput.value = "";
+        secondsInput.value = "";
+    }
+
+    function updateDisplay(totalTimeInSecond) {
+
+        let hours = Math.floor(totalTimeInSecond / 3600);
+        let minutes = Math.floor((totalTimeInSecond % 3600)/60)
+        let seconds = totalTimeInSecond % 60;
+
+        hoursInput.value = hours;
+        minutesInput.value = minutes;
+        secondsInput.value = seconds;
+    }
+
+    reset.addEventListener("click", resetFun)
+    pause.addEventListener("click", pauseFun)
+    start.addEventListener("click", startFun)
+
+
+</script>
+</html>
