@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #countryContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .countryCard {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .countryCard h2 {
+            margin-top: 0;
+        }
+
+        .countryCard p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Country app </h3>
+    <button id="sortBtn">Sort by Population</button>
+    <div id="countryContainer">
+
+    </div>
+</body>
+
+</html>
+<script>
+    let countryContainer = document.getElementById("countryContainer");
+
+    // fetch("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-countries")
+    //     .then((Response) => {
+    //         return Response.json();
+    //     }).then((data) => {
+    //         displayData(data.data)
+    //     }).catch((error) => {
+    //         console.log("error", error)
+    //     })
+
+
+    async function fetchCountryData() {
+    try {
+        const response = await fetch("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-countries");
+        const data = await response.json();
+        return data.data;
+    } catch (error) {
+        console.error("Error", error);
+    }
+}
+
+
+
+
+    function displayData(countries) {
+        countryContainer.innerHTML = "";
+
+        console.log(countries);
+        countries.forEach((country) => {
+            const countryCard = document.createElement('div');
+            countryCard.classList.add('countryCard');
+
+            const capital = document.createElement('p');
+            // capital.textContent = country.country ? `country: ${country.country}` : "country: N/A";
+            capital.textContent = "country",country.country;
+            console.log(capital)
+
+            const population = document.createElement('p');
+            population.textContent = `Population: ${country.population}`;
+            console.log(population)
+
+            const rank = document.createElement('p');
+            rank.textContent = `rank: ${country.Rank}`;
+            console.log(rank)
+
+            countryCard.appendChild(capital);
+            countryCard.appendChild(population);
+            countryCard.appendChild(rank);
+
+            countryContainer.append(countryCard);
+        });
+
+    }
+    // short data by populataion;
+    function sortData(countries) {
+        return countries.sort((a, b) => parseInt(a.population) - parseInt(b.population));
+        // displayData(countries);
+    }
+
+    document.getElementById("sortBtn").addEventListener("click", async () => {
+        let countryData = await fetchCountryData();
+        let shortData=sortData(countryData);
+        displayData(shortData);
+    });
+
+    fetchCountryData()
+    .then(data =>displayData(data))
+    .catch(error => console.log("error"));
+
+</script>
