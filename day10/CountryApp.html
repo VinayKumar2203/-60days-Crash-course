@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>school</title>
+</head>
+
+<body>
+    <h1>school</h1>
+</body>
+
+</html>
+<script>
+    const school = {
+        name: "XYZ School",
+        establishYear: 1990,
+        departments: {
+            math: { teachers: 5, students: 150 },
+            science: { teachers: 4, students: 120 },
+            history: { teachers: 3, students: 100 },
+            english: { teachers: 4, students: 130 },
+        },
+        courses: ["math", "science", "history", "english"],
+        students: [
+            {
+                name: "Alice",
+                className: "Grade 5",
+                scores: { math: 95, science: 88, history: 85, english: 92 },
+            },
+            {
+                name: "Bob",
+                className: "Grade 4",
+                scores: { math: 80, science: 78, history: 92, english: 85 },
+            },
+            {
+                name: "Charlie",
+                className: "Grade 5",
+                scores: { math: 88, science: 90, history: 78, english: 88 },
+            },
+            {
+                name: "Diana",
+                className: "Grade 4",
+                scores: { math: 92, science: 85, history: 88, english: 90 },
+            },
+        ],
+    };
+
+    //  this is the one method 
+    function countCalculation({ departments: { math: { teachers: mathTeachersCount, students: mathStudentsCount }, history: { teachers: historyTeachersCount, students: historyStudentsCount },
+    } }) {
+        return {
+            mathTeachersCount, historyTeachersCount, mathStudentsCount, historyStudentsCount
+        }
+    }
+    // console.log(countCalculation(school));
+
+    // and now i am use second method
+    function Countcalculation(school) {
+        let mathTeachersCount = school.departments.math.teachers;
+        let mathStudentsCount = school.departments.math.students
+        let historyTeachersCount = school.departments.history.teachers;
+        let historyStudentsCount = school.departments.history.students;
+        return {
+            mathStudentsCount, mathTeachersCount, historyTeachersCount, historyStudentsCount
+        }
+    }
+    // console.log(Countcalculation(school))
+
+
+    // Problem 11: findTopStudent [1]
+
+    function findTopStudent(subject) {
+
+        let topStudent = null;
+        let maxScore = -Infinity;
+        for (let student of school.students) {
+            // console.log(subject);
+            // console.log(school.students,)
+
+            let score = student.scores[subject];
+            if (score && score > maxScore) {
+                maxScore = score;
+                topStudent = student;
+            }
+
+            return topStudent;
+
+        }
+
+    }
+    // console.log(findTopStudent("history"))
+
+    // Problem 12: addNewDept [1]
+
+    
+function addNewDept(school,newDepartment) {
+     school.departments[newDepartment.name]={
+        teachers:newDepartment.teachers,
+        students:newDepartment.students
+     }  
+     return school; 
+}
+let newDepartment={name:"art",teachers:25,students:68}
+// console.log(addNewDept(school,newDepartment));
+
+// Problem 13: highestStudentCountDepartment[1]
+
+
+function highestStudentCountDepartment(school) {
+    let maxStudentCount = 0;
+    let highestDept = '';
+    for (const dept in school.departments) {
+        console.log(dept, school.departments[dept]);
+        let {students}=school.departments[dept];
+        if (students>maxStudentCount) {
+            maxStudentCount =students
+            highestDept =dept;
+        } 
+    }
+    return highestDept;
+}
+// highestStudentCountDepartment(school)
+console.log(highestStudentCountDepartment(school));
+
+
+
+
+
+
+
+
+
+// Problem 14: Greeting Message [1]  
+
+function generateGreeting(name,language='english') {
+    let greetings={
+        english:"Hello" + " "+ name,
+        spanish:"Hola" + " " + name,
+        french:"Bonjour" + " "+ name
+    }
+    return  greetings[language]
+}
+// generateGreeting("vinay")
+// console.log(generateGreeting("Alice")); 
+// console.log(generateGreeting("vinay","spanish")); 
+
+
+
+</script>
