@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #filters {
+    margin-bottom: 20px;
+  }
+  
+  #filters label {
+    margin-right: 10px;
+  }
+  
+  #employee-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #employee-table th, #employee-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #employee-table th {
+    background-color: #f2f2f2;
+  }
+  
+  #pagination {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  #pagination button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
