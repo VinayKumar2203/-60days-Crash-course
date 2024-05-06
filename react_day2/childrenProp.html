@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Rendering</title>
+    
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        let root = document.getElementById("root");
+        function Gallery({ children }) {
+            return (
+                <>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:'1rem'}}>{children}</div>
+                </>
+            )
+        }
+        function Image({src}) {
+            return(
+                <>
+                <img src={src} alt="" style={{width:'100%',height:"auto-fill"}} />
+                </>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <Gallery> 
+
+                        <Image src="https://www.bing.com/th?id=OIP.4cmK9d36bF0F7-V-SaVPnAHaG_&w=124&h=110&c=8&rs=1&qlt=90&o=6&dpr=1.4&pid=3.1&rm=2" />
+                        <Image src="https://www.bing.com/th?id=OIP.hF8_3tDhRrZvxm-j1kZwgwHaE9&w=145&h=100&c=8&rs=1&qlt=90&o=6&dpr=1.4&pid=3.1&rm=2" />
+
+                        <Image src="https://www.bing.com/th?id=OIP._IgGc9h6kbuSmYLsRhBNvwHaEo&w=156&h=100&c=8&rs=1&qlt=90&o=6&dpr=1.4&pid=3.1&rm=2" />
+
+                        
+                    </Gallery>;
+                </>
+            );
+        }
+        let reactRoot = ReactDOM.createRoot(root)
+        reactRoot.render(<App/>)
+    </script>
+</body>
+
+</html>
