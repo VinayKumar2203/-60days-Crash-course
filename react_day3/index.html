@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dynamic Form</title>
+  <title>Quiz App</title>
 </head>
 
 <body>
@@ -14,63 +14,100 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const { useState } = React;
+    // const { useState } = React;
 
-    const DynamicForm = () => {
-      const [hobbies, setHobbies] = useState(['']);
+function Quiz() {
+  // Step 1: Define the questions
+  const questions = [
+    {
+      questionText: "What is the capital of France?",
+      options: ["Paris", "London", "Berlin", "Madrid"],
+      correctAnswer: "Paris"
+    },
+    {
+      questionText: "What is 2 + 2?",
+      options: ["3", "4", "5", "6"],
+      correctAnswer: "4"
+    },
+    {
+      questionText: "What is the largest planet?",
+      options: ["Earth", "Mars", "Jupiter", "Saturn"],
+      correctAnswer: "Jupiter"
+    }
+  ];
 
-      const handleChange = (index, event) => {
-        const newHobbies = [...hobbies];
-        newHobbies[index] = event.target.value;
-        setHobbies(newHobbies);
-      };
+  // Step 2: Initialize state
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [score, setScore] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
-      const handleAddField = () => {
-        setHobbies([...hobbies, '']);
-      };
+  // Step 3: Handle answer selection
+  const handleAnswerChange = (questionIndex, answer) => {
+    setSelectedAnswers({
+      ...selectedAnswers,
+      [questionIndex]: answer
+    });
+  };
 
-      const handleRemoveField = (index) => {
-        const newHobbies = hobbies.filter((_, i) => i !== index);
-        setHobbies(newHobbies);
-      };
+  // Step 4: Calculate score on form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let newScore = 0;
+    questions.forEach((question, index) => {
+      if (selectedAnswers[index] === question.correctAnswer) {
+        newScore++;
+      }
+    });
+    setScore(newScore);
+    setSubmitted(true);
+  };
 
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(hobbies);
-      };
+  // Step 5: Restart the quiz
+  const handleRestart = () => {
+    setSelectedAnswers({});
+    setScore(null);
+    setSubmitted(false);
+  };
 
-      return (
+  return (
+    <div>
+      {!submitted ? (
         <form onSubmit={handleSubmit}>
-          <h3>Enter Your Hobbies</h3>
-          {hobbies.map((hobby, index) => (
-            <div key={index} style={{ marginBottom: '10px' }}>
-              <input
-                type="text"
-                value={hobby}
-                onChange={(e) => handleChange(index, e)}
-                placeholder={`Hobby ${index + 1}`}
-                style={{ marginRight: '10px' }}
-              />
-              {index > 0 && (
-                <button
-                  type="button"
-                  onClick={() => handleRemoveField(index)}
-                  style={{ marginRight: '10px' }}
-                >
-                  Remove
-                </button>
-              )}
+          {questions.map((question, index) => (
+            <div key={index}>
+              <h3>{question.questionText}</h3>
+              {question.options.map((option) => (
+                <label key={option}>
+                  <input
+                    type="radio"
+                    name={`question-${index}`}
+                    value={option}
+                    checked={selectedAnswers[index] === option}
+                    onChange={() => handleAnswerChange(index, option)}
+                  />
+                  {option}
+                </label>
+              ))}
             </div>
           ))}
-          <button type="button" onClick={handleAddField} style={{ marginRight: '10px' }}>
-            Add Hobby
-          </button>
           <button type="submit">Submit</button>
         </form>
-      );
-    };
+      ) : (
+        <div>
+          <h2>Your Score: {score} / {questions.length}</h2>
+          <button onClick={handleRestart}>Restart Quiz</button>
+        </div>
+      )}
+    </div>
+  );
+}
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<DynamicForm />);
+// Render the Quiz component
+ReactDOM.render(<Quiz />, document.getElementById('root'));
+
+
+    // const root = ReactDOM.createRoot(document.getElementById('root'));
+    // root.render(<Quiz />);
   </script>
 </body>
 
