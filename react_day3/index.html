@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Form</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const { useState } = React;
+
+    const DynamicForm = () => {
+      const [hobbies, setHobbies] = useState(['']);
+
+      const handleChange = (index, event) => {
+        const newHobbies = [...hobbies];
+        newHobbies[index] = event.target.value;
+        setHobbies(newHobbies);
+      };
+
+      const handleAddField = () => {
+        setHobbies([...hobbies, '']);
+      };
+
+      const handleRemoveField = (index) => {
+        const newHobbies = hobbies.filter((_, i) => i !== index);
+        setHobbies(newHobbies);
+      };
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(hobbies);
+      };
+
+      return (
+        <form onSubmit={handleSubmit}>
+          <h3>Enter Your Hobbies</h3>
+          {hobbies.map((hobby, index) => (
+            <div key={index} style={{ marginBottom: '10px' }}>
+              <input
+                type="text"
+                value={hobby}
+                onChange={(e) => handleChange(index, e)}
+                placeholder={`Hobby ${index + 1}`}
+                style={{ marginRight: '10px' }}
+              />
+              {index > 0 && (
+                <button
+                  type="button"
+                  onClick={() => handleRemoveField(index)}
+                  style={{ marginRight: '10px' }}
+                >
+                  Remove
+                </button>
+              )}
+            </div>
+          ))}
+          <button type="button" onClick={handleAddField} style={{ marginRight: '10px' }}>
+            Add Hobby
+          </button>
+          <button type="submit">Submit</button>
+        </form>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<DynamicForm />);
+  </script>
+</body>
+
+</html>

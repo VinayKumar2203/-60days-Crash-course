@@ -1,19 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
-  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel">
-    // Your  code will go here
 
-    
-  </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DynamicForm</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  // Your  code will go here
+  const { useState } = React;
+
+  function DynamicForm() {
+    const [hobbies, setHobbies] = useState(['']);
+
+    function handleSubmit(e) {
+      e.preventDefault()
+      console.log(hobbies);
+    }
+
+    function handleAddField() {
+      setHobbies([...hobbies,''])
+    }
+
+    function handleRemoveField() {
+      let newHobbies=hobbies.filter((_,i) => i !== index);
+      setHobbies(newHobbies);
+    };
+    const handleChange = (index, event) => {
+        const newHobbies = [...hobbies];
+        newHobbies[index] = event.target.value;
+        setHobbies(newHobbies);
+      };
+
+
+
+    return (
+      <>
+      <form onSubmit={handleSubmit}>
+        <h3>Enter your hobbies</h3>
+          {hobbies.map((hobby,index) =>(
+           <div key={index}>
+            <input type="text"
+            value={hobby}
+            placeholder={`Hobby ${index+1}`}
+            onChange={(e)=>handleChange(index,e)}
+            />
+            {
+              index > 0 && (
+                <button type="button"
+                onClick={()=>handleRemoveField(index)}
+                >
+                Remove
+                </button>
+              )
+            }
+            </div> 
+          )  )};
+        <button type="button" onClick={handleAddField}>AddHobbies</button>
+        <button type="submit">Submit</button>
+        </form>
+      </>
+    )
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<DynamicForm />);
+</script>
+
 </html>
