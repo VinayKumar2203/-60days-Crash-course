@@ -1,19 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo app</title>
+</head>
+
+<body>
+  <div id="root"></div>
   <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
   <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    // Your  code will go here
+    const { useState } = React;
 
-    
+    function App() {
+
+      const [items,setItems]=useState('');
+      const [storeTodo,setStoreTodo]=useState([]);
+      const [filter, setFilter] = useState('all');
+
+      function addNewTask(items) { 
+        if(items.trim()!==''){
+          setStoreTodo([...storeTodo,items])
+         setItems('');
+         console.log(storeTodo)
+        }
+      }
+
+      function filteredTasks() {
+        
+      }
+
+      return (
+        <>
+          <h1>add Todo</h1>
+          <div>
+              <input type="text"
+              placeholder="enter task"
+              value={items}
+              onChange={(e)=>setItems(e.target.value)}
+              />
+              <button onClick={addNewTask}>add task</button>
+          </div>
+          <div>
+            <button onClick={()=>setFilter('all')}>All</button>
+            <button onClick={()=>setFilter('active')}>Active</button>
+            <button onClick={()=>setFilter('completed')}>Completed</button>
+            </div>
+
+            <ul>
+              {
+                filteredTasks().map((todo,index)=>(
+                  <li key={index}>
+                    <input
+                    type="checked"
+                    />
+                    
+                    <button onClick={() => removeTask(index)}>Delete</button>
+
+                    </li>
+                ))
+              }
+              </ul>
+
+            </>
+      )
+    }
+
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
   </script>
+</body>
+
 </html>

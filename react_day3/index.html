@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz App</title>
+  <title>Todo app</title>
 </head>
 
 <body>
@@ -14,100 +14,80 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const { useState } = React;
-    // const { useState } = React;
 
-function Quiz() {
-  // Step 1: Define the questions
-  const questions = [
-    {
-      questionText: "What is the capital of France?",
-      options: ["Paris", "London", "Berlin", "Madrid"],
-      correctAnswer: "Paris"
-    },
-    {
-      questionText: "What is 2 + 2?",
-      options: ["3", "4", "5", "6"],
-      correctAnswer: "4"
-    },
-    {
-      questionText: "What is the largest planet?",
-      options: ["Earth", "Mars", "Jupiter", "Saturn"],
-      correctAnswer: "Jupiter"
-    }
-  ];
+    function App() {
+      const [task, setTask] = useState('');
+      const [storeTodo, setStoreTodo] = useState([]);
+      const [filter, setFilter] = useState('all');
 
-  // Step 2: Initialize state
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [score, setScore] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
-
-  // Step 3: Handle answer selection
-  const handleAnswerChange = (questionIndex, answer) => {
-    setSelectedAnswers({
-      ...selectedAnswers,
-      [questionIndex]: answer
-    });
-  };
-
-  // Step 4: Calculate score on form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let newScore = 0;
-    questions.forEach((question, index) => {
-      if (selectedAnswers[index] === question.correctAnswer) {
-        newScore++;
+      function addNewTask() {
+        if (task.trim() !== '') {
+          setStoreTodo([...storeTodo, { text: task, completed: false }]);
+          setTask('');
+        }
       }
-    });
-    setScore(newScore);
-    setSubmitted(true);
-  };
 
-  // Step 5: Restart the quiz
-  const handleRestart = () => {
-    setSelectedAnswers({});
-    setScore(null);
-    setSubmitted(false);
-  };
+      function toggleTaskCompletion(index) {
+        const newStoreTodo = storeTodo.map((todo, i) => {
+          if (i === index) {
+            return { ...todo, completed: !todo.completed };
+          }
+          return todo;
+        });
+        setStoreTodo(newStoreTodo);
+      }
 
-  return (
-    <div>
-      {!submitted ? (
-        <form onSubmit={handleSubmit}>
-          {questions.map((question, index) => (
-            <div key={index}>
-              <h3>{question.questionText}</h3>
-              {question.options.map((option) => (
-                <label key={option}>
-                  <input
-                    type="radio"
-                    name={`question-${index}`}
-                    value={option}
-                    checked={selectedAnswers[index] === option}
-                    onChange={() => handleAnswerChange(index, option)}
-                  />
-                  {option}
-                </label>
-              ))}
-            </div>
-          ))}
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <div>
-          <h2>Your Score: {score} / {questions.length}</h2>
-          <button onClick={handleRestart}>Restart Quiz</button>
-        </div>
-      )}
-    </div>
-  );
-}
+      function removeTask(index) {
+        const newStoreTodo = storeTodo.filter((_, i) => i !== index);
+        setStoreTodo(newStoreTodo);
+      }
 
-// Render the Quiz component
-ReactDOM.render(<Quiz />, document.getElementById('root'));
+      function filteredTasks() {
+        if (filter === 'active') {
+          return storeTodo.filter(todo => !todo.completed);
+        }
+        if (filter === 'completed') {
+          return storeTodo.filter(todo => todo.completed);
+        }
+        return storeTodo;
+      }
 
+      return (
+        <>
+          <h1>Add Todo</h1>
+          <div>
+            <input
+              type="text"
+              placeholder="Enter task"
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+            />
+            <button onClick={addNewTask}>Add task</button>
+          </div>
+          <div>
+            <button onClick={() => setFilter('all')}>All</button>
+            <button onClick={() => setFilter('active')}>Active</button>
+            <button onClick={() => setFilter('completed')}>Completed</button>
+          </div>
+          <ul>
+            {filteredTasks().map((todo, index) => (
+              <li key={index} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => toggleTaskCompletion(index)}
+                />
+                {todo.text}
+                <button onClick={() => removeTask(index)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        </>
+      );
+    }
 
-    // const root = ReactDOM.createRoot(document.getElementById('root'));
-    // root.render(<Quiz />);
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
   </script>
 </body>
 
